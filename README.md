@@ -22,6 +22,9 @@ A Roman encoding and mapping module for Indian languages.
 RevCode Reference Table
 =======================
 
+| Hello | world |
+| -------|----------|
+|jashdjas | asdascas|
 
 +---------+---------------+-------+-----------------+---------+------------------+----------+-----------------+---------+-----------------+---------+----------------+--------+---------------+-------+-------------------+-----------+---------------+-------+------------------+----------+-----------------+---------+
 | RevCode | Unicode-Hindi | Hindi | Unicode-Punjabi | Punjabi | Unicode-Gujarati | Gujarati | Unicode-Marathi | Marathi | Unicode-Kannada | Kannada | Unicode-Telugu | Telugu | Unicode-Tamil | Tamil | Unicode-Malayalam | Malayalam | Unicode-Oriya | Oriya | Unicode-Assamese | Assamese | Unicode-Bengali | Bengali |
