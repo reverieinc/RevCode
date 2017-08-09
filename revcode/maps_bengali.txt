@@ -1,0 +1,26 @@
+[
+    [  # continuous tenses
+        [  # Masculine
+            U"চ্ছে", u"চ্ছে",  # Singular  : He is dancing . # Plural   : Boys are dancing .
+        ],
+        [  # Feminine
+           U"চ্ছে",, u"চ্ছে",  # Singular  : She is dancing . # Plural   : Girls are dancing .
+        ]
+    ],
+    [  # perfect tenses
+        [
+            u"েয়েছে ", u"েয়েছে "   # Singular  : He has danced . # Plural   : Boys have danced .
+        ],
+        [
+             u"েয়েছে ", u"েয়েছে "  # Singular  : She has danced . # Plural   : Girls have danced .
+        ]
+    ],
+    [  # perfect continuous tenses
+        [
+              U"চ্ছে",,   U"চ্ছে",    # Singular  : He has been dancing  . # Plural   : Boys have been dancing .
+        ],
+        [
+               U"চ্ছে",,   U"চ্ছে",  # Singular  : She has been dancing  . # Plural   : Girls have been dancing.
+        ]
+    ]
+]

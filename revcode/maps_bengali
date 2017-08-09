@@ -1,0 +1,26 @@
+[
+[  # continuous tenses
+[  # Masculine
+U"cCE", u"cCE",  # Singular  : He is dancing . # Plural   : Boys are dancing .
+],
+[  # Feminine
+U"cCE",, u"cCE",  # Singular  : She is dancing . # Plural   : Girls are dancing .
+]
+],
+[  # perfect tenses
+[
+u"EFyECE ", u"EFyECE "   # Singular  : He has danced . # Plural   : Boys have danced .
+],
+[
+u"EFyECE ", u"EFyECE "  # Singular  : She has danced . # Plural   : Girls have danced .
+]
+],
+[  # perfect continuous tenses
+[
+U"cCE",,   U"cCE",    # Singular  : He has been dancing  . # Plural   : Boys have been dancing .
+],
+[
+U"cCE",,   U"cCE",  # Singular  : She has been dancing  . # Plural   : Girls have been dancing.
+]
+]
+]

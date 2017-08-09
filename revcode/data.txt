@@ -1,0 +1,86 @@
+NON_FINITE = {
+
+    # when tag is VB
+    'VB': {
+        # suffixes according to dependencies under a given tag
+
+        "default": u" আ/ া",
+        "for": u"ইবলৈ,আ/ া ",
+        "for_noun": u"ইবলৈ,আ/ া",
+        "pass": u"ব",
+        "advcl": u"ইবলৈ,আ/ া",
+        "xcomp": u"ব,ই/ি, ইব/",
+        "xcomp_adj": u"ৰ বাবে",
+        "xcomp_going": u"ব",
+        "xcomp_need": u"ৰ",
+        "xcomp_have": u"ই/ি থাকিব",
+        "xcomp_want": u"ব",
+        "xcomp_causative": u"ব",
+        "xcomp_not_stative": u"ৰ বাবে",
+        "ccomp": u"ব, ই/ি, ইব",
+        "ccomp_see": u"আ/া",
+        "ccomp_help": u"বৰ বাবে",
+        "ccomp_let_s": u"আ/ া",
+        "ccomp_let": u"ব",
+        "acl": u"বলৈ"
+    },
+
+    # when tag is VBG
+    'VBG': {
+
+        # suffixes according to dependencies under a given tag
+
+        "default": u"ই/ি",
+        "mark": u"ৰ বাবে",
+        "advcl": u"ই/ ি থাকোতে , ই/ ি ",
+        "acl": u"ই/ ি কৰি আছে, ৰ বাবে",
+        "acomp": u"ব পাৰে",
+        "pcomp": u"ৰ বাবে",
+        "amod": u"ই/ ি থকা, হোৱা",
+        "xcomp": u"ইব, ই/ ি",
+        "xcomp_need": u"ই/ ি থকা",
+        "xcomp_have": u"ই/ি থাকিব",
+        "xcomp_want": u"ই/ ি থাকিব",
+        "xcomp_causative": u"ওৱা, আ/া",
+        "xcomp_stative": u"ই/ ি",
+        "xcomp_keep": u"ই/ ি থকা",
+        "xcomp_going": u"ব",
+        "root": u"ই/ ি",
+        "ccomp": u"ব",
+        "ccomp_see": u"ই/ি থকা",
+        "ccomp_help": u"ই/ি থকা",
+        "ccomp_let_s": u"ই/ি থাকিব",
+        "ccomp_let": u"ই/ি থাকিব"
+
+    },
+
+    # when tag is VBN
+    'VBN': {
+
+        # suffixes according to dependencies under a given tag
+
+        "default": u" ত",
+        "xcomp_adj": u" ত হোৱাৰ বাবে, ৱাৰ বাবে",
+        "xcomp_adj_to": u"ব, আৰ/ াৰ বাবে",
+        "xcomp_going": u" ৱা",
+        "xcomp_need": u" ",
+        "xcomp_be": u" ব আছে",
+        "xcomp_want": u" ",
+        "xcomp_causative": u" ব আছে",
+        "xcomp_stative": u" ৱা যাব",
+        "xcomp": u" ৱা যোৱাৰ বাবে",
+        "acl": u" আ/ া",
+        "acomp": u" কৰা হৈছে",
+        "advcl": u" কৰি",
+        "relcl": u"কৰাৰ বাবে",
+        "subj": u" হোৱা",
+        "ccomp": u"ৱা যোৱাৰ বাবে ",
+        "ccomp_see": u" ",
+        "ccomp_help": u" কৰাৰ বাবে",
+        "ccomp_let_s": u" আ যাওক",
+        "ccomp_let": u"আ যাওক ",
+        "pcomp_having": u"ই/ি",
+        "pcomp": u"আৰ/াৰ বাবে"
+
+    }
+}

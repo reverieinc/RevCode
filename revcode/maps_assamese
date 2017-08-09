@@ -1,0 +1,154 @@
+# -*- coding: utf-8 -*-
+
+# “Aa / A " - matra endind
+MAIN_VERB_SUFFIX = [ # (EAT VERB) - KA - Khaa
+[  # continuous tenses
+[  # Masculine
+u"i", u"i "  # Singular  : He is eating . # Plural   : Boys are eating .
+],
+[  # Feminine
+u"i", u"i"  # Singular  : She is eating. # Plural   : Girls are eating.
+]
+],
+[  # perfect tenses
+[
+u"lE", u"lE"   # Singular  : He has eaten . # Plural   : Boys have eaten .
+],
+[
+u"lE", u"lE "   # Singular  : She has eaten . # Plural   : Girls have eaten .
+]
+],
+[  # perfect continuous tense
+[
+u"iFyE", u"iFyE"   # Singular  : He has been eating . # Plural   : Boys have been eating.
+],
+[
+u"iFyE", u"iFyE"  # Singular  : She has been eating . # Plural   : Girls have been eating
+]
+]
+]
+
+
+# “A / a "  matra ending
+MAIN_VERB_SUFFIX_  = [#= (SAY VERB) - ka - Ka, take
+[  # continuous tenses
+[  # Masculine
+u"YE", u"YE"  # Singular  : He is saying . # Plural   : Boys are saying .
+],
+[  # Feminine
+u"YE", u"YE"  # Singular  : She is saying . # Plural   : Girls are saying .
+]
+],
+[  # perfect tenses
+[
+u"lE", u"lE"   # Singular  : He has said . # Plural   : Boys have said .
+],
+[
+u"lE", u"lE "   # Singular  : She has said . # Plural   : Girls have said .
+]
+],
+[  # perfect continuous tenses
+[
+u"YEFyE", u"YEFyE"   # Singular  : He has been saying . # Plural   : Boys have been saying.
+],
+[
+u"YEFyE", u"YEFyE"  # Singular  : She has been saying . # Plural   : Girls have been saying
+]
+]
+]
+
+
+
+# “ I / i " matra ending
+MAIN_VERB_SUFFIX =[#= (DRINK VERB) - pi - Pi
+[  # continuous tenses
+[  # Masculine
+U" ", u" "  # Singular  : He is drinking . # Plural   : Boys are drinking.
+],
+[  # Feminine
+U" ", u" "  # Singular  : She is drinking . # Plural   : Girls are drinking .
+]
+],
+[  # perfect tenses
+[
+u"lE", u"lE"   # Singular  : He has drunk . # Plural   : Boys have drunk .
+],
+[
+u"lE", u"lE "   # Singular  : She has drunk . # Plural   : Girls have drunk .
+]
+],
+[  # perfect continuous tenses
+[
+u"FyE", u"FyE"   # Singular  : He has been drinking . # Plural   : Boys have been drinking.
+],
+[
+u"FyE", u"FyE"  # Singular  : She has been drinking . # Plural   : Girls have been drinking
+]
+]
+]
+
+
+
+
+
+
+
+# “ E / E " matra ending
+MAIN_VERB_SUFFIX =[#= (GIVE VERB) - dE - De
+[  # continuous tenses
+[  # Masculine
+U"i ", u"i "  # Singular  : He is giving . # Plural   : Boys are giving.
+],
+[  # Feminine
+U"i ", u"i "  # Singular  : She is giving. # Plural   : Girls are giving.
+]
+],
+[  # perfect tenses
+[
+u"lE", u"lE"   # Singular  : He has given. # Plural   : Boys have given.
+],
+[
+u"lE", u"lE "   # Singular  : She has given. # Plural   : Girls have given.
+]
+],
+[  # perfect continuous tenses
+[
+u"iFyE", u"iFyE"   # Singular  : He has been giving. # Plural   : Boys have been giving.
+],
+[
+u"iFyE", u"iFyE"  # Singular  : She has been giving. # Plural   : Girls have been giving
+]
+]
+]
+
+# ( “e / E” matra ending verb is similar to “aa / A” matra ending verbs )
+
+
+
+# “O / O " matra ending
+MAIN_VERB_SUFFIX =[#= (SLEEP VERB) - SO - sho
+[  # continuous tenses
+[  # Masculine
+U"ui ", u"ui "  # Singular  : He is sleeping. # Plural   : Boys are sleeping.
+],
+[  # Feminine
+U"ui ", u"ui "  # Singular  : She is sleeping. # Plural   : Girls are sleeping.
+]
+],
+[  # perfect tenses
+[
+u"lE", u"lE"   # Singular  : He has slept. # Plural   : Boys have slept.
+],
+[
+u"lE", u"lE "   # Singular  : She has slept. # Plural   : Girls have slept.
+]
+],
+[  # perfect continuous tenses
+[
+u"uiFyE", u"uiFyE"   # Singular  : He has been sleeping. # Plural   : Boys have been sleeping
+],
+[
+u"uiFyE", u"uiFyE"  # Singular  : She has been sleeping. # Plural   : Girls have been sleeping
+]
+]
+]

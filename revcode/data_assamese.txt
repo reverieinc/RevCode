@@ -1,0 +1,237 @@
+Pronouns	Assamese
+Default	
+i	মই
+we	আমি
+you	আপুনি
+he	তেও/ সি
+she	তাই
+it	এইটোৱে
+they	সিহতে
+me	মোৰ
+us	আমাৰ
+him	তেওৰ/তাৰ
+her	তাইৰ
+them	সিহতৰ
+my	মোৰ
+our	আমাৰ
+your	আপোনাৰ
+his	তাৰ
+her	তাইৰ
+its	এইটোৰ
+their	সিহতৰ
+mine	মোৰ
+ours	আমাৰ
+yours	আপোনাৰ
+theirs	সিহতৰ
+myself	মোক নিজকে
+ourselves	আমাক নিজকে
+yourself	তোমাক নিজকে
+yourselves	তোমালোকক নিজকে
+himself	তেওক নিজকে
+herself	তেওক নিজকে
+itself	ইয়াক নিজকে
+themselves	সিহতক নিজকে
+	
+	
+whoever	
+whatever	
+wherein	
+whose	
+whereever	
+whereof	
+why	
+whom	
+whatsoever	
+that	
+whichever	
+whenever	
+whomever	
+whosoever	
+what	
+how	
+which	
+whosever	
+who	
+however	
+by	
+whereby	
+where	
+whence	
+whomsoever	
+	
+As object (Base form)	
+	
+me	মোৰ
+us	আমাৰ
+you	আপোনাৰ
+him	তেওৰ/তাৰ
+her	তাইৰ
+it	এইটোৰ
+them	সিহতৰ
+myself	মোৰ নিজৰ
+yourself	আপোনাৰ নিজৰ
+himself	তেওৰ নিজৰ
+herself	তেওৰ নিজৰ
+itself	ইয়াৰ নিজৰ
+ourselves	আমাৰ নিজৰ
+yourselves	আপোনালোকৰ নিজৰ
+themselves	সিহতৰ নিজৰ
+we	
+i	
+who	
+whom	
+she	
+they	
+its	
+he	
+	
+As object + KO form	
+	
+me	মোক
+us	আমাক
+you	আপোনাক
+him	তেওক
+her	তাইক
+it	এইটোক
+them	সিহতক
+myself	মোক নিজকে
+yourself	আপোনাক নিজকে
+himself	তেওক নিজকে 
+herself	তেওক নিজকে 
+itself	ইয়াক নিজকে
+ourselves	আমাক নিজকে
+yourselves	আপোনালোকক নিজকে
+themselves	সিহতক নিজকে
+we	
+i	
+who	
+whom	
+she	
+they	
+its	
+he	
+	
+As subject (Passive voice)	
+	
+i	মোক
+we	আমাক
+you	আপোনাক
+he	তেওক
+she	তাইক
+it	এইটোক
+they	সিহতক
+who	
+them	
+its	
+me	
+her	
+us	
+him	
+whom	
+	
+As subject reference	
+	
+I	মই
+we	আমি
+you	আপুনি
+he	তেও
+she	তেও
+it	এইটোৱে
+they	সিহতে
+him	
+us	
+me	
+	
+As attribute to noun (It is me/them/they/hers/...)	
+	
+me	মই
+us	আমি
+you	আপুনি
+him	তেও
+her	তাই
+it	এইটো
+them	সিহত
+mine	মোৰ
+ours	আমাৰ
+yours	আপোনাৰ
+his	তেওৰ
+hers	তাইৰ
+its	এইটোৰ
+theirs	সিহতৰ
+i	
+who	
+whom	
+she	
+they	
+he	
+	
+As Dative form	
+	
+me	মোক
+us	আমাক
+you	আপোনাক
+him	তেওক
+her	তাইক
+it	এইটোক
+them	সিহতক
+myself	নিজেই
+ourselves	নিজেই
+yourself	নিজেই
+himself	নিজেই
+herself	নিজেই
+itself	নিজেই
+themselves	নিজেই
+we	
+i	
+who	
+whom	
+she	
+they	
+its	
+he	
+	
+As clausal complement (CCOMP)  (Same as "As object (base form)" )	
+	
+me	মোৰ
+us	আমাৰ
+you	আপোনাৰ
+him	তেওৰ
+her	তাইৰ
+it	এইটোৰ
+them	সিহতৰ
+myself	মোৰ নিজৰ
+ourselves	আমাৰ নিজৰ
+yourself	আপোনাৰ নিজৰ
+himself	তেওৰ নিজৰ
+herself	তেওৰ নিজৰ
+itself	ইয়াৰ নিজৰ
+themselves	সিহতৰ নিজৰ
+who	
+yourselves	
+whom	
+	
+As subject  + NE form	
+	
+i	মই
+we	আমি
+you	আপুনি
+he	তেও
+she	তাই
+it	এইটোৱে
+they	সিহতে
+me	
+who	
+	
+Subject with aux KO form	
+	
+i	মই
+we	আমি
+you	আপুনি
+he	তেও
+she	তাই
+it	এইটোৱে
+they	সিহতে
+who	
+me	
+his	
+him	
