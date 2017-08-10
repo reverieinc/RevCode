@@ -338,15 +338,15 @@ if __name__ == '__main__':
 
     local_str = u"तारीक  फ्लाइट  टिकट"
 
-    print local_str
+    # print local_str
 
     rev_str = convert_to_revcode(indic_normalizer.get_indic_normalized(local_str), hindi_to_rev)
 
-    print  rev_str
+    # print  rev_str
 
     local_returned = convert_rev_to_local(rev_str, rev_to_hindi)
 
-    print local_returned
+    # print local_returned
 
     if indic_normalizer.get_indic_normalized(local_str) == local_returned:
         print "True"
