@@ -119,3 +119,63 @@ RevCode Reference Table
 |         |               |       |                 |         |                  |          |                 | त्र      |                 |         |                |        |               |       |                   |           |               |       |                  |          |                 |         |
 |         |               |       |                 |         |                  |          |                 | ज्ञ      |                 |         |                |        |               |       |                   |           |               |       |                  |          |                 |         |
 |         |               |       |                 |         |                  |          |                 | श्र      |                 |         |                |        |               |       |                   |           |               |       |                  |          |                 |         |
+
+
+
+
+Installation
+============
+
+```pip install revcode```
+
+
+
+Example Usage
+=============
+
+*1. Convert a message in a specific language to RevCode*
+--------------------------------------------
+```python
+from revcode.revcode_conversion import to_revcode
+from revcode.meta.enums import Language
+
+example_string = u'नमस्ते'  #your message needs to be in unicode here
+print to_revcode(example_string, Language.Hindi)  #Language.<targetLanguage>
+
+example_string = u'ನಮಸ್ಕಾರ'
+print to_revcode(example_string, Language.Kannada)
+
+example_string = u'నమస్కారం'
+print to_revcode(example_string, Language.Telugu)
+
+```
+*Output*
+-------
+```
+namastE
+namaskAra
+namaskArx
+```
+
+*2. Convert a RevCode message to a specific language*
+-----------------------------------------------------
+```python
+from revcode.revcode_conversion import from_revcode
+from revcode.meta.enums import Language
+
+example_string = 'namastE'
+print from_revcode(example_string, Language.Hindi)
+
+example_string = 'namaskAra'
+print from_revcode(example_string, Language.Kannada)
+
+example_string = 'namaskArx'
+print from_revcode(example_string, Language.Telugu)
+```
+*Output*
+------------
+```
+नमस्ते
+ನಮಸ್ಕಾರ
+నమస్కారం
+```
