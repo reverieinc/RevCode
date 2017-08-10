@@ -3,7 +3,7 @@
 import codecs
 import os
 
-from helpers import  indic_normalizer
+import  indic_normalizer
 from revcode_helpers import is_local_consonant, is_local_vowel, is_rev_consonant, is_rev_vowel, in_indic
 
 # global dictionaries
