@@ -4,7 +4,7 @@ import codecs
 import os
 
 import  indic_normalizer
-from revcode_helpers import is_local_consonant, is_local_vowel, is_rev_consonant, is_rev_vowel, in_indic
+from revcode_helpers import is_local_consonant, is_local_vowel, is_rev_consonant, is_rev_vowel, in_indic, get_single_chars
 
 # global dictionaries
 from mappings import hindi_to_rev, punjabi_to_rev, telugu_to_rev, tamil_to_rev, kannada_to_rev, gujarati_to_rev, oriya_to_rev, malayalam_to_rev, marathi_to_rev, bengali_to_rev, assamese_to_rev
@@ -336,22 +336,26 @@ def convert_language_file_to_rev(fname):
 if __name__ == '__main__':
 
 
-    local_str = u"तारीक  फ्लाइट  टिकट"
+    local_str_list = [u"पंखा", u"पँखा" ,u"पितामहः" , u"क:" , u"रजत" , u"ः"]
 
-    # print local_str
+    for local_str in local_str_list:
+        print "\n"
+        print local_str
 
-    rev_str = convert_to_revcode(indic_normalizer.get_indic_normalized(local_str), hindi_to_rev)
+        rev_str = convert_to_revcode(indic_normalizer.get_indic_normalized(local_str), hindi_to_rev)
 
-    # print  rev_str
+        print  rev_str
 
-    local_returned = convert_rev_to_local(rev_str, rev_to_hindi)
+        local_returned = convert_rev_to_local(rev_str, rev_to_hindi)
 
-    # print local_returned
+        print local_returned
 
-    if indic_normalizer.get_indic_normalized(local_str) == local_returned:
-        print "True"
-    else:
-        print "False"
+        if indic_normalizer.get_indic_normalized(local_str) == local_returned:
+            print "True"
+        else:
+            print "False"
+
+        print get_single_chars(rev_str)
 
     # file conversions :
 
