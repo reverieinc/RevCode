@@ -1,3 +1,9 @@
+# -*- coding: utf-8 -*-
+
+from __future__ import unicode_literals
+from __future__ import print_function
+
+
 def is_local_vowel(ch):
     ch = ch & 0x7f
 
@@ -87,4 +93,4 @@ def get_single_chars(rev_str) :
     return rev_str_list
 
 if __name__ == '__main__':
-    print get_single_chars("paxKA")
+    print(get_single_chars("paxKA"))

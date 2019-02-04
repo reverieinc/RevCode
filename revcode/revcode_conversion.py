@@ -1,44 +1,62 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import print_function
+from __future__ import unicode_literals
+
 import codecs
 import os
 
-import  indic_normalizer
-from revcode_helpers import is_local_consonant, is_local_vowel, is_rev_consonant, is_rev_vowel, in_indic, get_single_chars
+# Use unichr() for Python 2.x
+import sys
+if sys.version_info[0] == 2:
+    chr = unichr
+
+import revcode.indic_normalizer as indic_normalizer
+from revcode.revcode_helpers import *
 
 # global dictionaries
-from mappings import hindi_to_rev, punjabi_to_rev, telugu_to_rev, tamil_to_rev, kannada_to_rev, gujarati_to_rev, oriya_to_rev, malayalam_to_rev, marathi_to_rev, bengali_to_rev, assamese_to_rev
-from mappings import rev_to_hindi, rev_to_punjabi, rev_to_telugu, rev_to_tamil, rev_to_kannada,rev_to_gujarati,rev_to_assamese, rev_to_bengali, rev_to_malayalam, rev_to_oriya, rev_to_marathi
-from meta.enums import Language
-from mappings import language_mappings
-from meta.language_mappings import TARGET_LANGUAGES
+from revcode.mappings import *
+
+ISO_2_LANG_MAP = {
+    'as': 'assamese',
+    'bn': 'bengali',
+    'gu': 'gujarati',
+    'hi': 'hindi',
+    'kn': 'kannada',
+    'ml': 'malayalam',
+    'mr': 'marathi',
+    'or': 'odia',
+    'pa': 'punjabi',
+    'ta': 'tamil',
+    'te': 'telugu',
+}
 
 normalised_local_rev = {
-    Language.Hindi: hindi_to_rev,
-    Language.Punjabi: punjabi_to_rev,
-    Language.Telugu: telugu_to_rev,
-    Language.Tamil: tamil_to_rev,
-    Language.Kannada: kannada_to_rev,
-    Language.Gujarati: gujarati_to_rev,
-    Language.Assamese : assamese_to_rev,
-    Language.Bengali : bengali_to_rev,
-    Language.Malayalam : malayalam_to_rev,
-    Language.Marathi : marathi_to_rev,
-    Language.Oriya : oriya_to_rev
-
+    'hindi': hindi_to_rev,
+    'punjabi': punjabi_to_rev,
+    'telugu': telugu_to_rev,
+    'tamil': tamil_to_rev,
+    'kannada': kannada_to_rev,
+    'gujarati': gujarati_to_rev,
+    'assamese': assamese_to_rev,
+    'bengali': bengali_to_rev,
+    'malayalam': malayalam_to_rev,
+    'marathi': marathi_to_rev,
+    'odia': odia_to_rev
 }
+
 normalised_rev_local = {
-    Language.Hindi: rev_to_hindi,
-    Language.Punjabi: rev_to_punjabi,
-    Language.Telugu: rev_to_telugu,
-    Language.Tamil: rev_to_tamil,
-    Language.Kannada: rev_to_kannada,
-    Language.Gujarati : rev_to_gujarati,
-    Language.Assamese : rev_to_assamese,
-    Language.Bengali : rev_to_bengali,
-    Language.Malayalam : rev_to_malayalam,
-    Language.Marathi : rev_to_marathi,
-    Language.Oriya : rev_to_oriya
+    'hindi': rev_to_hindi,
+    'punjabi': rev_to_punjabi,
+    'telugu': rev_to_telugu,
+    'tamil': rev_to_tamil,
+    'kannada': rev_to_kannada,
+    'gujarati': rev_to_gujarati,
+    'assamese': rev_to_assamese,
+    'bengali': rev_to_bengali,
+    'malayalam': rev_to_malayalam,
+    'marathi': rev_to_marathi,
+    'odia': rev_to_odia
 }
 
 IGNORE_LIST = "~`!@#$%^&*()_-+={}[]:>;',</?*-+.\""
@@ -47,9 +65,11 @@ IGNORE_LIST = "~`!@#$%^&*()_-+={}[]:>;',</?*-+.\""
 # Given local string and target language, returns revcoded string for that language
 def to_revcode(local_str, language):
    global normalised_local_rev
+
+   language = ISO_2_LANG_MAP.get(language, language)
    if language in normalised_local_rev:
        to_revcode_dict = normalised_local_rev[language]
-       return convert_to_revcode(local_str, to_revcode_dict)
+       return _convert_to_revcode(local_str, to_revcode_dict)
    else:
        raise KeyError("Local to RevCode map not found for specified language")
 
@@ -57,21 +77,16 @@ def to_revcode(local_str, language):
 # Given revcoded string and target language, returns local string for that language
 def from_revcode(rev_str, language):
     global normalised_rev_local
+
+    language = ISO_2_LANG_MAP.get(language, language)
     if language in normalised_rev_local:
         from_revcode_dict = normalised_rev_local[language]
-        return convert_rev_to_local(rev_str, from_revcode_dict)
+        return _convert_from_revcode(rev_str, from_revcode_dict)
     else:
         raise KeyError("RevCode to Local map not found for specified language")
 
 
-def load_normalised_dict():
-    global normalised_local_rev
-    global normalised_rev_local
-    normalised_local_rev = hindi_to_rev
-    normalised_rev_local = rev_to_hindi
-
-
-def convert_to_revcode(local_str, normalised_local_rev=hindi_to_rev):
+def _convert_to_revcode(local_str, normalised_local_rev):
     local_str = indic_normalizer.get_indic_normalized(local_str)
 
     final_rev_local_str = ""
@@ -120,7 +135,7 @@ def convert_to_revcode(local_str, normalised_local_rev=hindi_to_rev):
         elif ch == halant:
             consonant_flag = 0
         else:
-            rev_local_str = rev_local_str + normalised_local_rev.rev_code.get(ch, unichr(ch))
+            rev_local_str = rev_local_str + normalised_local_rev.rev_code.get(ch, chr(ch))
 
             if is_local_consonant(ch) == -1:
                 consonant_flag = consonant_flag
@@ -136,12 +151,12 @@ def convert_to_revcode(local_str, normalised_local_rev=hindi_to_rev):
     return final_rev_local_str
 
 
-def convert_rev_to_local(rev_str, normalised_rev_local=rev_to_hindi):
+def _convert_from_revcode(rev_str, normalised_rev_local):
     rev_str = rev_str.strip()
 
     double_letter_code = ["H", "F", "W", "Y"]
-    local_str = u""
-    halant = unichr((0x094D & 0x00FF) + normalised_rev_local.offset)
+    local_str = ""
+    halant = chr((0x094D & 0x00FF) + normalised_rev_local.offset)
     consonant_flag = False
 
     i = 0
@@ -160,7 +175,7 @@ def convert_rev_to_local(rev_str, normalised_rev_local=rev_to_hindi):
             consonant_flag = False
         if normalised_rev_local.rev_code.get(dict_key) is not None:
             val = normalised_rev_local.rev_code.get(dict_key)
-            val = unichr(val)
+            val = chr(val)
 
             if (dict_key == "a" and i != 0 and rev_str[i - 1] != " "):
                 consonant_flag = False
@@ -174,7 +189,7 @@ def convert_rev_to_local(rev_str, normalised_rev_local=rev_to_hindi):
                 elif is_rev_vowel(dict_key):
                     tmp_ch = val
                     tmp_ch = ord(tmp_ch) + 0x038
-                    local_str = local_str + unichr(tmp_ch)
+                    local_str = local_str + chr(tmp_ch)
                     consonant_flag = False
             else:
                 local_str = local_str + val
@@ -194,182 +209,25 @@ def convert_rev_to_local(rev_str, normalised_rev_local=rev_to_hindi):
 
     return local_str
 
-# read a target language file
-# ending with "_language.py" convert it to
-# "_language_rev_code.py" in another rev_code folder at same level to src file .
-def convert_py_file_to_rev(fnames):
-    '''
-
-    :param fnames: a list with file names 
-    '''
-
-
-    for fname in fnames:
-        source_path = fname[0:fname.rfind("/")]
-        target_path = source_path[:-15]+"rev_code/"
-        source_file = fname[fname.rfind("/")+1:fname.rfind("_")]
-        source_lang = fname[fname.rfind("_")+1:fname.rfind(".")]
-        target_file = target_path + source_file +"_"+source_lang+ "_rev_code.py"
-
-        with codecs.open(fname, "r", "utf-8") as fin, codecs.open(target_file,"w", "utf-8") as fout:
-            for line in fin:
-                line = line.strip()
-                normalised_line = indic_normalizer.get_indic_normalized(line)
-                src_lang = TARGET_LANGUAGES.get(source_lang)
-                line = to_revcode(normalised_line,src_lang)
-                fout.write(line + "\n")
-
-    print "VOCAB REV_CODED"
-
-
-# reads tsv file
-# each tab corresponding to a language
-def convert_vocab_tsv_file(fpath):
-    '''
-    :param file_path: path of tsv file
-    :return: 
-    '''
-    if fpath.strip() == "":
-        return
-    target_file = fpath+"_rev"
-    print target_file
-    with codecs.open(fpath, "r", "utf-8") as fin, codecs.open(target_file, "w", "utf-8") as fout:
-        for line in fin:
-                line_t = line.split("\t")
-                line_out = []
-
-                for i in range(len(line_t)):
-
-                    # for POS need to to append in file
-                    if i < 1 :
-                        line_out.append(line_t[i])
-                    elif i>12 :
-                        continue
-                    # for SYNSET id and ENGLISH word
-                    else :
-                        src_lang = language_mappings.Language_TSV[i]
-                        normalised_word = indic_normalizer.get_indic_normalized(line_t[i])
-                        revcoded_word = to_revcode(normalised_word, src_lang)
-                        line_out.append(revcoded_word)
-                fout.write("\t".join(line_out)+"\n")
-                print line_out
-
-    print "VOCAB REV_CODED"
-
-
-def convert_vocab_list(data_list):
-    '''
-    :param file_path: path of tsv file
-    :return: 
-    '''
-    line_out = []
-    for i in range(len(data_list)):
-
-        # for POS need to to append in file
-        if i < 1:
-            line_out.append(data_list[i])
-        elif i > 12:
-            continue
-        # for SYNSET id and ENGLISH word
-        else:
-            src_lang = language_mappings.Language_TSV_LIST[i]
-            normalised_word = indic_normalizer.get_indic_normalized(data_list[i])
-            revcoded_word = to_revcode(normalised_word, src_lang)
-            line_out.append(revcoded_word)
-
-    return line_out
-
-# read a file , convert it to revcode
-def convert_file_to_Rev():
-
-    fnames_maps = [
-        # "/Users/ankita/git/reflection-py/main/data/language_related_mappings/verb_suffix_mappings/verb_suffix_mappings_target_language/verb_suffix_structure_marathi.py"
-         "/Users/ankita/git/reflection-py/main/data/language_related_mappings/preposition_mappings/preposition_mappings_target_language/preposition_mappings_marathi.py"
-    ]
-
-    for fname in fnames_maps:
-        source_path = fname[0:fname.rfind("/")]
-        target_path = source_path[:-15]+"rev_code/"
-        source_file = fname[fname.rfind("/")+1:fname.rfind("_")]
-        source_lang = fname[fname.rfind("_")+1:fname.rfind(".")]
-        target_file = target_path + source_file +"_"+source_lang+ "_rev_code.py"
-
-        with codecs.open(fname, "r", "utf-8") as fin, codecs.open(target_file, "w", "utf-8") as fout:
-            for line in fin:
-                line = line.strip()
-                normalised_line = indic_normalizer.get_indic_normalized(line)
-                src_lang = TARGET_LANGUAGES.get(source_lang)
-                line = to_revcode(normalised_line,src_lang)
-                fout.write(line + "\n")
-
-    print "File REV_CODED",target_file
-# read a target language file
-# ending with "_language.py" convert it to
-# "_language_rev_code.py"
-def convert_language_file_to_rev(fname):
-    '''
-    :param fnames: a list with file names
-    '''
-    print fname
-    if fname.strip() == "":
-        return
-    source_lang = fname[fname.rfind("_") + 1:fname.rfind(".")]
-    # target_file = fname[0:fname.rfind(".")] + "_rev_code.py"
-
-    grand_parent_dir = os.path.dirname(os.path.dirname(fname))
-    rev_code_file_dir = "pronoun_mappings_rev_code"
-    final_file_name = fname[fname.rfind("/")+1:fname.rfind(".")] + "_rev_code.py"
-    target_file = "/".join([grand_parent_dir, rev_code_file_dir, final_file_name])
-
-
-    with codecs.open(fname, "r", "utf-8") as fin, codecs.open(target_file, "w", "utf-8") as fout:
-        for line in fin:
-            line = line.strip()
-            normalised_line = indic_normalizer.get_indic_normalized(line)
-            src_lang = TARGET_LANGUAGES.get(source_lang)
-            line = to_revcode(normalised_line, src_lang)
-            fout.write(line + "\n")
-
-    print "VOCAB REV_CODED",target_file
-
 
 if __name__ == '__main__':
-
-
-    local_str_list = [u"पंखा", u"पँखा" ,u"पितामहः" , u"क:" , u"रजत" , u"ः"]
+    local_str_list = ["पंखा", "पँखा" ,"पितामहः" , "क:" , "रजत" , "ः"]
 
     for local_str in local_str_list:
-        print "\n"
-        print local_str
+        print("\n")
+        print(local_str)
 
-        rev_str = convert_to_revcode(indic_normalizer.get_indic_normalized(local_str), hindi_to_rev)
+        rev_str = to_revcode(indic_normalizer.get_indic_normalized(local_str), 'hindi')
 
-        print  rev_str
+        print(rev_str)
 
-        local_returned = convert_rev_to_local(rev_str, rev_to_hindi)
+        local_returned = from_revcode(rev_str, 'hindi')
 
-        print local_returned
+        print(local_returned)
 
         if indic_normalizer.get_indic_normalized(local_str) == local_returned:
-            print "True"
+            print("True")
         else:
-            print "False"
+            print("False")
 
-        print get_single_chars(rev_str)
-
-    # file conversions :
-
-    # "_language.py" files : mapping files
-    fnames = [
-
-
-    ]
-    # convert_py_file_to_rev(fnames)
-
-    # SYNSET file , TSV files
-
-    fapth = ""
-    # convert_vocab_tsv_file(fapth)
-    # convert_file_to_Rev()
-    # language file
-    # language file
+        print(get_single_chars(rev_str))

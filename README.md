@@ -17,7 +17,63 @@ A Roman encoding and mapping module for Indian languages.
 * Assamese
 * Bengali
 
+Installation
+============
 
+From PyPI:  
+```pip install revcode```
+
+From source `tar.gz` bundle:  
+```pip install revcode-2.0.tar.gz```
+
+
+Example Usage
+=============
+
+*1. Convert text to RevCode*
+--------------------------------------------
+```python
+from revcode import revcode_conversion as rc
+
+text = 'नमस्ते'
+print(rc.to_revcode(text, 'hi'))  # language as ISO-2 code
+
+text = 'ನಮಸ್ಕಾರ'
+print(rc.to_revcode(text, 'kannada'))  # langauge as full name
+
+text = 'నమస్కారం'
+print(rc.to_revcode(text, 'te'))
+
+```
+*Output*
+-------
+```
+namastE
+namaskAra
+namaskArx
+```
+
+*2. Convert text from RevCode*
+-----------------------------------------------------
+```python
+from revcode import revcode_conversion as rc
+
+text = 'namastE'
+print(rc.from_revcode(text, 'hindi'))
+
+text = 'namaskAra'
+print(rc.from_revcode(text, 'kn'))
+
+text = 'namaskArx'
+print(rc.from_revcode(text, 'telugu'))
+```
+*Output*
+------------
+```
+नमस्ते
+ನಮಸ್ಕಾರ
+నమస్కారం
+```
 
 RevCode Reference Table
 =======================
@@ -122,60 +178,3 @@ RevCode Reference Table
 
 
 
-
-Installation
-============
-
-```pip install revcode```
-
-
-
-Example Usage
-=============
-
-*1. Convert a message in a specific language to RevCode*
---------------------------------------------
-```python
-from revcode.revcode_conversion import to_revcode
-from revcode.meta.enums import Language
-
-example_string = u'नमस्ते'  #your message needs to be in unicode here
-print to_revcode(example_string, Language.Hindi)  #Language.<targetLanguage>
-
-example_string = u'ನಮಸ್ಕಾರ'
-print to_revcode(example_string, Language.Kannada)
-
-example_string = u'నమస్కారం'
-print to_revcode(example_string, Language.Telugu)
-
-```
-*Output*
--------
-```
-namastE
-namaskAra
-namaskArx
-```
-
-*2. Convert a RevCode message to a specific language*
------------------------------------------------------
-```python
-from revcode.revcode_conversion import from_revcode
-from revcode.meta.enums import Language
-
-example_string = 'namastE'
-print from_revcode(example_string, Language.Hindi)
-
-example_string = 'namaskAra'
-print from_revcode(example_string, Language.Kannada)
-
-example_string = 'namaskArx'
-print from_revcode(example_string, Language.Telugu)
-```
-*Output*
-------------
-```
-नमस्ते
-ನಮಸ್ಕಾರ
-నమస్కారం
-```
