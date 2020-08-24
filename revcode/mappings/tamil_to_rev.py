@@ -83,4 +83,5 @@ rev_code = {
     0xBDD: "HR",  #
     0xBDE: "FP",  #
     0xBDF: "Fy",  #
+    0x200c:""
 }

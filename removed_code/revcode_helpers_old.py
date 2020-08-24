@@ -1,7 +1,16 @@
+# -*- coding: utf-8 -*-
+
+from __future__ import unicode_literals
+from __future__ import print_function
+
+
 def is_local_vowel(ch):
     ch = ch & 0x7f
 
     if ch >= 0x5 and ch <= 0x14:
+        return True
+
+    if ch in [0x01, 0x02, 0x03]:
         return True
     return False
 
@@ -84,4 +93,4 @@ def get_single_chars(rev_str):
 
 
 if __name__ == '__main__':
-    get_single_chars("WarajaHztaFy")
+    print(get_single_chars("paxKA"))
