@@ -447,7 +447,7 @@ if __name__ == '__main__':
     # normalise_src_lang_file()
     # language file
     # language file
-    # s1=convert_rev_to_local('san en‌eks‌Ti‌ni svic An cEyxDi', normalised_rev_local=rev_to_telugu)
-    # s2 =from_revcode('EplIkESana',Language.Hindi)
-    # print(s1)
-    # print(s2)
+    s1=convert_rev_to_local('san en‌eks‌Ti‌ni svic An cEyxDi', normalised_rev_local=rev_to_telugu)
+    s2 =from_revcode('EplIkESana',Language.Hindi)
+    print(s1)
+    print(s2)
