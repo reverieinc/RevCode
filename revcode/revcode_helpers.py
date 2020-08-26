@@ -13,7 +13,7 @@ def is_local_consonant(ch, consonant_flag=False):
     # if ch in u"\"":
     #     return -1
 
-    if (ch == 0x9f0 or ch == 0x9f1):
+    if (ch == 0x9f0 or ch == 0x9f1  or ch == 0xB71):
         return 1
 
     if ch == 0x200c:
