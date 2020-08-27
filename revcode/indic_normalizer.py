@@ -171,11 +171,7 @@ def get_indic_normalized(in_str):
         elif i < length - 2 and ord(in_str[i]) == 0x9A4 and ord(in_str[i + 1]) == 0x9cd and ord(
                 in_str[i + 2]) == 0x200D:
             out_str += chr(0x9CE)
-            i += 3
-
-        elif i < length - 1 and ord(in_str[i]) == 0x928 and ord(in_str[i + 1]) == 0x94d:
-            out_str += chr(0x902)
-            i += 2
+            i += 3    
 
         # BENGALI ENDS
 
