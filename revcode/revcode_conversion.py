@@ -45,7 +45,7 @@ normalised_rev_local = {
     Language.Oriya: rev_to_oriya
 }
 
-IGNORE_LIST = "~`!@#$%^&*()_-+={}[]:>;',</?*-+.\""
+IGNORE_LIST = "1234567890~`!@#$%^&*()_-+={}[]:>;',</?*-+.\""
 
 
 # Given local string and target language, returns revcoded string for that language
