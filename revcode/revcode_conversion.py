@@ -123,9 +123,12 @@ def convert_to_revcode(local_str, normalised_local_rev=hindi_to_rev):
             consonant_flag = 1
             
         elif ch == halant:
-            # if next char is a vowel add chr(0xA0) to local string
+            # if next char is a vowel add chr(0xA6) to local string
             if not consonant_flag or (consonant_flag and i < len(local_str) - 1 and is_local_vowel(ord(local_str[i + 1]))):
-                rev_local_str = rev_local_str + chr(0xA0)
+                rev_local_str = rev_local_str + chr(0xA6)
+
+            if not consonant_flag or (consonant_flag and i < len(local_str) - 1 and not is_local_consonant(ord(local_str[i + 1]))):
+                rev_local_str = rev_local_str + chr(0xA6)
 
             consonant_flag = 0
             
@@ -192,7 +195,7 @@ def convert_rev_to_local(rev_str, normalised_rev_local=rev_to_hindi):
             consonant_flag = False
             val = normalised_rev_local.rev_code.get(dict_key, dict_key)
             # if val == 0xA then add halant else next line
-            if val == chr(0xa0):
+            if val == chr(0xA6):
                 local_str = local_str + halant
             else:
                 local_str = local_str + val
