@@ -91,6 +91,7 @@ def convert_to_revcode(local_str, normalised_local_rev=hindi_to_rev):
         if not in_indic(ord(ch)):
             if i != 0 and is_const:
                 rev_local_str = rev_local_str + "a"
+
             final_rev_local_str += rev_local_str + ch
             consonant_flag = 0
             is_const = 0
@@ -127,7 +128,7 @@ def convert_to_revcode(local_str, normalised_local_rev=hindi_to_rev):
             if not consonant_flag or (consonant_flag and i < len(local_str) - 1 and is_local_vowel(ord(local_str[i + 1]))):
                 rev_local_str = rev_local_str + chr(0xA6)
 
-            if not consonant_flag or (consonant_flag and i < len(local_str) - 1 and not is_local_consonant(ord(local_str[i + 1]))):
+            elif not consonant_flag or (consonant_flag and i < len(local_str) - 1 and not is_local_consonant(ord(local_str[i + 1]))):
                 rev_local_str = rev_local_str + chr(0xA6)
 
             consonant_flag = 0
@@ -392,17 +393,17 @@ def normalise_src_lang_file():
 # जे एंड  जे बेबी मिल्क लोशन
 if __name__ == '__main__':
 
-    # f = open("/Users/reverie-pc/Desktop/RevCode/test/conj")
-    # f1 = open("/Users/reverie-pc/Desktop/RevCode/test/result","a+")
-    # str_l = f.readlines()
-    # for local_str in str_l:
-    #     local_str = local_str.strip()
-    #     if local_str == "T13N":
-    #         print(local_str)
-    #         continue
-    #     rev_str = convert_to_revcode(indic_normalizer.get_indic_normalized(local_str), hindi_to_rev)
-    #     s2 =from_revcode(rev_str,Language.Hindi)
-    #     f1.write(rev_str+'\t'+local_str+'\t'+s2+'\n')
+    f = open("/Users/reverie-pc/Desktop/RevCode/test/conj")
+    f1 = open("/Users/reverie-pc/Desktop/RevCode/test/result","a+")
+    str_l = f.readlines()
+    for local_str in str_l:
+        local_str = local_str.strip()
+        if local_str == "T13N":
+            print(local_str)
+            continue
+        rev_str = convert_to_revcode(indic_normalizer.get_indic_normalized(local_str), malayalam_to_rev)
+        s2 =from_revcode(rev_str,Language.Malayalam)
+        f1.write(rev_str+'\t'+local_str+'\t'+s2+'\n')
 
     str_l = ['రెండు', ]
     print('సన్ ఎన్‌ఎక్స్‌టి‌ని స్విచ్ ఆన్ చేయండి')
@@ -410,7 +411,7 @@ if __name__ == '__main__':
         if local_str == "T13N":
             print(local_str)
             continue
-        rev_str = convert_to_revcode(indic_normalizer.get_indic_normalized(local_str), telugu_to_rev)
+        rev_str = convert_to_revcode(indic_normalizer.get_indic_normalized(local_str), malayalam_to_rev)
         print(rev_str)
 
         # rev_str = from_revcode("pYEkETa", Language.Hindi)
