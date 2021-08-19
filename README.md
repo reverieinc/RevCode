@@ -5,17 +5,19 @@ A Roman encoding and mapping module for Indian languages.
 
 *Languages Supported*
 ---------------------
-* Hindi
-* Punjabi
-* Gujarati
-* Marathi
-* Kannada
-* Telugu
-* Tamil
-* Malayalam
-* Oriya
-* Assamese
-* Bengali
+| Language  | ISO Code |
+|-----------|----------|
+| Hindi     | hi       |
+| Punjabi   | pa       |
+| Gujarati  | gu       |
+| Marathi   | mr       |
+| Kannada   | kn       |
+| Telugu    | te       |
+| Tamil     | ta       |
+| Malayalam | ml       |
+| Oriya     | or       |
+| Assamese  | as       |
+| Bengali   | bn       |
 
 Installation
 ============
@@ -55,6 +57,7 @@ namaskArx
 
 *2. Convert text from RevCode*
 -----------------------------------------------------
+**Note: Converting from non-RevCode text will give inappropriate results**
 ```python
 from revcode import revcode_conversion as rc
 
