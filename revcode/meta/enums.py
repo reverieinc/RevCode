@@ -1,5 +1,6 @@
 from enum import Enum
 
+
 class Language(Enum):
     English = 0
     Hindi = 1
@@ -13,4 +14,3 @@ class Language(Enum):
     Oriya = 9
     Bengali = 10
     Assamese = 11
-

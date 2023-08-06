@@ -84,5 +84,5 @@ rev_code = {
     "FP": 0xA5E,  # ਫ਼
     "Fy": 0xA5F,  # -
     "YN": 0xA70,  # ੰ
-    "HH": 0xA71
+    "HH": 0xA71,
 }

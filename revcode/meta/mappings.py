@@ -1,5 +1,4 @@
-from meta.enums import Language
-
+from revcode.meta.enums import Language
 
 
 LANG_STR_ENUM_MAPPINGS = {
@@ -38,7 +37,7 @@ LANG_STR_ENUM_MAPPINGS = {
     "ori": Language.Oriya,
     "ben": Language.Bengali,
     "asm": Language.Assamese,
-    "eng": Language.English
+    "eng": Language.English,
 }
 
 LANG_ENUM_STR_MAPPINGS = {
@@ -53,7 +52,7 @@ LANG_ENUM_STR_MAPPINGS = {
     Language.Assamese: "assamese",
     Language.Oriya: "oriya",
     Language.Bengali: "bengali",
-    Language.English: "english"
+    Language.English: "english",
 }
 
 LANGUAGE_MAPPING = {
@@ -69,6 +68,5 @@ LANGUAGE_MAPPING = {
     "odiya": "or",
     "bengali": "bn",
     "assamese": "as",
-    "english": "en"
-
+    "english": "en",
 }

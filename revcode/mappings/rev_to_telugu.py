@@ -83,5 +83,5 @@ rev_code = {
     "HR": 0xC5D,  # -
     "FP": 0xC5E,  # -
     "Fy": 0xC5F,  # -
-    "Wq": 0x200c,  # NJ
+    "Wq": 0x200C,  # NJ
 }
