@@ -1,19 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import revcode.indic_normalizer as indic_normalizer
-
-from revcode.meta.enums import Language
-from revcode.mappings import assamese_to_rev, rev_to_assamese
-from revcode.mappings import bengali_to_rev, rev_to_bengali
-from revcode.mappings import gujarati_to_rev, rev_to_gujarati
-from revcode.mappings import hindi_to_rev, rev_to_hindi
-from revcode.mappings import kannada_to_rev, rev_to_kannada
-from revcode.mappings import malayalam_to_rev, rev_to_malayalam
-from revcode.mappings import marathi_to_rev, rev_to_marathi
-from revcode.mappings import oriya_to_rev, rev_to_oriya
-from revcode.mappings import punjabi_to_rev, rev_to_punjabi
-from revcode.mappings import tamil_to_rev, rev_to_tamil
-from revcode.mappings import telugu_to_rev, rev_to_telugu
+from revcode import normalised_local_rev, normalised_rev_local
 
 from revcode.revcode_helpers import (
     is_local_consonant,
@@ -23,32 +11,10 @@ from revcode.revcode_helpers import (
     in_indic,
 )
 
-normalised_local_rev = {
-    Language.Hindi: hindi_to_rev,
-    Language.Punjabi: punjabi_to_rev,
-    Language.Telugu: telugu_to_rev,
-    Language.Tamil: tamil_to_rev,
-    Language.Kannada: kannada_to_rev,
-    Language.Gujarati: gujarati_to_rev,
-    Language.Assamese: assamese_to_rev,
-    Language.Bengali: bengali_to_rev,
-    Language.Malayalam: malayalam_to_rev,
-    Language.Marathi: marathi_to_rev,
-    Language.Oriya: oriya_to_rev,
-}
-normalised_rev_local = {
-    Language.Hindi: rev_to_hindi,
-    Language.Punjabi: rev_to_punjabi,
-    Language.Telugu: rev_to_telugu,
-    Language.Tamil: rev_to_tamil,
-    Language.Kannada: rev_to_kannada,
-    Language.Gujarati: rev_to_gujarati,
-    Language.Assamese: rev_to_assamese,
-    Language.Bengali: rev_to_bengali,
-    Language.Malayalam: rev_to_malayalam,
-    Language.Marathi: rev_to_marathi,
-    Language.Oriya: rev_to_oriya,
-}
+from revcode.mappings import (
+    hindi_to_rev,
+    rev_to_hindi,
+)  # since default language, it needs import
 
 IGNORE_LIST = "1234567890~`!@#$%^&*()_-+={}[]:>;',</?*-+.\""
 
